@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pyz
+*.pyzw
+*.pycachefile
+
+# Virtual Environment
+venv/
+env/
+myenv/
+*.env
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+*.ipynb.meta
+
+# Logs and Outputs
+logs/
+output/
+
+# IDE/Editor specific
+.idea/
+.vscode/
+*.sublime*
+*.swp
