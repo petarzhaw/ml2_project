@@ -61,4 +61,4 @@ Future improvements may include using more advanced natural language processing 
 
 ## Contact
 
-If you have any questions about this project, please feel free to reach out to me at <a href="mailto:mladepet@students.zhaw.ch"
+If you have any questions about this project, please feel free to reach out to me at [mladepet@students.zhaw.ch](mailto:mladepet@students.zhaw.ch)
