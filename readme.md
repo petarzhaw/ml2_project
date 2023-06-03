@@ -37,11 +37,15 @@ The script performs the following steps:
 
 6. Save and load models: The best performing model is saved to disk for future use.
 
+7. Predict subreddit: The model is used to predict the subreddit of a new post. Test it by running the cell for the test on its own dataset. Then test it by running the cell for the api call test. You can also run the main.py file to test the model in a browser. 
+
 ## Files
 
 - `app.ipynb`: The main Python file which fetches the data, preprocesses it, trains the models, and evaluates them.
 - `requirements.txt`: Lists the Python libraries required for this project.
 - `reddit.csv`: Stores the fetched Reddit posts.
+- `model.pkl`: Stores the best performing model for future use.
+- `main.py`: Runs the model in a browser.
 
 ## Results
 
@@ -57,4 +61,4 @@ Future improvements may include using more advanced natural language processing 
 
 ## Contact
 
-If you have any questions about this project, please feel free to reach out. 
+If you have any questions about this project, please feel free to reach out to me at <a href="mailto:mladepet@students.zhaw.ch"
