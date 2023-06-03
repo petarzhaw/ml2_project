@@ -82,19 +82,13 @@ def predict():
 
         new_post = new_post[['preprocessed_title_content', 'upvote_ratio', 'created_utc', 'score']]
         print(new_post)
-       # print(new_submission.subreddit.display_name)
         predicted_subreddit_id = loaded_model.predict(new_post)
-        print("Predicted subreddit name: ", subreddits[predicted_subreddit_id[0]])
+        predicted_subreddit = subreddits[predicted_subreddit_id[0]]
+        print("Predicted subreddit name: ", predicted_subreddit)
         print("Effective subreddit name: ", random_subreddit)
-        #parse predicted_subreddit_id to int
-        predicted_subreddit_id = int(predicted_subreddit_id[0])
-        print(predicted_subreddit_id)
-        print(subreddits.index(random_subreddit))
-
-        #check if predicted_subreddit_id is equal to random_subreddit
-        #if yes, result = "The model predicted correctly!"
-        #if no, result = "The model predicted incorrectly! - try again until it predicts it correctly"
-        if predicted_subreddit_id == subreddits.index(random_subreddit):
+             
+        #check if predicted_subreddit is equal to random_subreddit
+        if predicted_subreddit == random_subreddit:
             result = "The model predicted correctly!"
         else:
             result = "The model predicted incorrectly! - you can try again or proceed with creating a fitting picture"
