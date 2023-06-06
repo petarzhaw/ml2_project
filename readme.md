@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project uses Python and machine learning to classify Reddit posts based on their subreddit. It fetches posts from several subreddits, preprocesses the text data, and trains several machine learning models to predict the subreddit of a post.
+This project uses Python and machine learning to classify the subreddit of posts based on their parameters. It fetches posts from several subreddits, preprocesses the text data, and trains several machine learning models to predict the subreddit of a post.
 
 ## Motivation
 Many people use Reddit to discuss topics they are interested in. However, it can be difficult to find the right subreddit for a specific topic or they don't know which subreddit to choose for their specific post. This project aims to solve this problem by classifying subreddits based on their posts. 
