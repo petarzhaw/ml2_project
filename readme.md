@@ -67,6 +67,7 @@ Future improvements may include using more advanced natural language processing 
 If you have any questions about this project, please feel free to reach out to me at [mladepet@students.zhaw.ch](mailto:mladepet@students.zhaw.ch)
 
 ## Additional Information
+
 Scraping/API calls on Reddit are limited to 1 call per second and that's the reason only roughly 4000 unique samples of posts have been collected. 
 
 This app can be further improved by adding more subreddits to the list of subreddits to fetch posts from. The more subreddits we have, the more accurate the model will be in predicting the subreddit of a post and it will be able to suggest a subreddit for user written posts.
