@@ -11,9 +11,10 @@ from nltk.stem import WordNetLemmatizer
 
 app = Flask(__name__, template_folder='templates')
 
-reddit = praw.Reddit(client_id='DCW_USDBk23o37cYXu1LBQ', 
-                     client_secret='DcqCmVVZybQLBvqJ7KhmR8NuXe12Vg', 
-                     user_agent='ml2_project/0.0.1 (by /u/mladepet)')
+# Initialize a Reddit "instance" with your own credentials
+reddit = praw.Reddit(client_id=config.client_id,
+                     client_secret=config.client_secret,
+                     user_agent=config.user_agent)
 
 # List of subreddits
 subreddits = ['AskReddit', 'gaming', 'aww', 'movies', 'Showerthoughts', 'Jokes', 'science', 'books', 'Music', 'LifeProTips']
