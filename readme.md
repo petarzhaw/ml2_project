@@ -4,8 +4,14 @@
 
 This project uses Python and machine learning to classify the subreddit of posts based on their parameters. It fetches posts from several subreddits, preprocesses the text data, and trains several machine learning models to predict the subreddit of a post.
 
-## Motivation
-Many people use Reddit to discuss topics they are interested in. However, it can be difficult to find the right subreddit for a specific topic or they don't know which subreddit to choose for their specific post. This project aims to solve this problem by classifying subreddits based on their posts. 
+## Motivation and Problem
+Reddit is a popular platform for discussions and sharing information on various topics. However, finding the right subreddit for a specific topic can be challenging for users. They may not know which subreddit is the most suitable for their post, leading to reduced visibility and engagement.
+
+This project aims to address this problem by automatically classifying subreddits based on the content of the posts. By accurately predicting the subreddit, users can ensure that their posts reach the most relevant audience, increasing the chances of meaningful interactions and valuable discussions.
+
+## Image Functionality
+In addition to classifying subreddits, this project also offers an exciting image functionality. It can generate images for captions, which can be useful for various purposes such as social media posts, Reddit posts with images, news articles, and more. This helps users to quickly generate images for their content without having to use a separate image editing tool. With this functionality, users can generate images for their Reddit posts, which can help them to increase the visibility of their posts and engage more users.
+The images can be rated by the user and the rating will be stored in a CSV file. The ratings can be used to further improve the image generation.
 
 ## Prerequisites
 
@@ -46,9 +52,12 @@ The script performs the following steps:
 
 - `app.ipynb`: The main Python file which fetches the data, preprocesses it, trains the models, and evaluates them.
 - `requirements.txt`: Lists the Python libraries required for this project.
-- `reddit.csv`: Stores the fetched Reddit posts.
+- `data\reddit.csv`: Stores the fetched Reddit posts.
 - `model.pkl`: Stores the best performing model for future use.
 - `main.py`: Runs the model in a browser.
+- `templates/index.html`: HTML template for the web app.
+- `config.py`: Contains the configuration for the notebook.
+- `data\ratings.csv`: Contains the ratings for the posts.
 
 ## Results
 
