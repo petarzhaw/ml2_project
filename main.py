@@ -11,56 +11,56 @@ from nltk.stem import WordNetLemmatizer
 
 app = Flask(__name__, template_folder='templates')
 
-# Initialize a Reddit "instance" with your own credentials
+#Initialize a Reddit "instance" with your own credentials
 reddit = praw.Reddit(client_id=config.client_id,
                      client_secret=config.client_secret,
                      user_agent=config.user_agent)
 
-# List of subreddits
+#List of subreddits
 subreddits = ['AskReddit', 'gaming', 'aww', 'movies', 'Showerthoughts', 'Jokes', 'science', 'books', 'Music', 'LifeProTips']
 
-nltk.download('punkt')  # for tokenization
-nltk.download('stopwords')  # for stopword removal
-nltk.download('wordnet')  # for lemmatization
+nltk.download('punkt')  #For tokenization
+nltk.download('stopwords')  #For stopword removal
+nltk.download('wordnet')  #For lemmatization
 
 def preprocess_text(text):
-    # tokenize the text into words
+    #Tokenize the text into words
     words = word_tokenize(text)
 
-    # lower the case and remove punctuation
+    #lower the case and remove punctuation
     words = [word.lower() for word in words if word.isalpha()]
 
-    # remove words that have less than 3 characters
+    #Remove words that have less than 3 characters
     words = [word for word in words if len(word) > 2]
 
-    # lemmatize the words
+    #Lemmatize the words
     lemmatizer = WordNetLemmatizer()
     words = [lemmatizer.lemmatize(word) for word in words]
 
-    # remove stopwords
+    #Remove stopwords
     stop_words = set(stopwords.words('english'))
     words = [word for word in words if word not in stop_words]
 
-    # join the preprocessed words back into a single string
+    #Join the preprocessed words back into a single string
     preprocessed_text = ' '.join(words)
 
     return preprocessed_text
 
-# Load the model
+#Load the model
 with open('model.pkl', 'rb') as file:
     loaded_model = pickle.load(file)
 
 @app.route('/')
 def home():
-    return render_template('index.html')  # index.html should contain your button and result area
+    return render_template('index.html')  #index.html should contain your button and result area
 
 @app.route('/predict', methods=['POST'])
 def predict():
     if request.method == 'POST':
-        # The code that fetches a post and makes a prediction
+        #The code that fetches a post and makes a prediction
         title_content_length = 0
 
-        # Fetch new posts until one is found with preprocessed_title_content length > 30
+        #Fetch new posts until one is found with preprocessed_title_content length > 30
         while title_content_length <= 30:
             random_subreddit = np.random.choice(subreddits)
             new_submission = reddit.subreddit(random_subreddit).hot(limit=1)
@@ -88,13 +88,13 @@ def predict():
         print("Predicted subreddit name: ", predicted_subreddit)
         print("Effective subreddit name: ", random_subreddit)
              
-        #check if predicted_subreddit is equal to random_subreddit
+        #Check if predicted_subreddit is equal to random_subreddit
         if predicted_subreddit == random_subreddit:
             result = "The model predicted correctly!"
         else:
             result = "The model predicted incorrectly! - you can try again or proceed with creating a fitting picture"
-       
-    return jsonify({'result': result})  # return JSON
+    #Return JSON
+    return jsonify({'result': result})  
 
 if __name__ == '__main__':
     app.run(debug=True)
