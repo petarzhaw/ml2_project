@@ -16,6 +16,11 @@ The images can be rated by the user and the rating will be stored in a CSV file.
 ## Prerequisites
 
 The necessary libraries and their versions used in this project are listed in the `requirements.txt` file. 
+To fetch posts yourself, you will need to obtain API keys for the Reddit API. Follow the instructions below to obtain the keys:
+
+1. Contact the project author at [mladepet@students.zhaw.ch](mailto:mladepet@students.zhaw.ch) to request the keys.
+2. Once you receive the keys in the config.py file, you need to place it in the root of the project.
+3. You're ready to make API calls 
 
 ## Installation
 
