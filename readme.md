@@ -31,9 +31,27 @@ To fetch posts yourself, you will need to obtain API keys for the Reddit API. Fo
 pip install -r requirements.txt
 ```
 
+Google Colab:
+1. Open app.ipynb
+2. Create folder "data"
+3. Upload data/ratings.csv and data/reddit.csv into that folder
+4. Upload model.pkl, requirements.txt, config.py into the root of the project. 
+5. Install the packages
+
 ## Usage
 
 This code can be run as cell by cell as an jupyter notebook (.ipynb). It fetches posts from a list of defined subreddits, stores the fetched data in a CSV file, and preprocesses the posts' text data. It then trains and evaluates multiple classifiers based on this preprocessed data.
+If running on Google Colab, run the following code in the notebook.
+
+``` python
+!pip install -r requirements.txt 
+!pip install praw
+```	
+
+Then continue with the rest of the code by running each cell one by one or by running all cells at once.
+If you run all cells at once, you will train two models but this shouldn't take too long. You can also skip the training and run the cell to load the model from disk.
+
+Please be careful if you want to make API calls yourself as you can potentially hit the Reddit API limit. Preferably use the reddit.csv file. You will make one API call at a time later in the project where you test the Model - this way you can ensure it works. 
 
 ## Project Structure
 
