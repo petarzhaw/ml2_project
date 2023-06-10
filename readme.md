@@ -16,6 +16,11 @@ The images can be rated by the user and the rating will be stored in a CSV file.
 ## Prerequisites
 
 The necessary libraries and their versions used in this project are listed in the `requirements.txt` file. 
+To fetch posts yourself, you will need to obtain API keys for the Reddit API. Follow the instructions below to obtain the keys:
+
+1. Contact the project author at [mladepet@students.zhaw.ch](mailto:mladepet@students.zhaw.ch) to request the keys.
+2. Once you receive the keys in the config.py file, you need to place it in the root of the project.
+3. You're ready to make API calls 
 
 ## Installation
 
@@ -26,9 +31,27 @@ The necessary libraries and their versions used in this project are listed in th
 pip install -r requirements.txt
 ```
 
+Google Colab:
+1. Open app.ipynb
+2. Create folder "data"
+3. Upload data/ratings.csv and data/reddit.csv into that folder
+4. Upload model.pkl, requirements.txt, config.py into the root of the project. 
+5. Install the packages
+
 ## Usage
 
 This code can be run as cell by cell as an jupyter notebook (.ipynb). It fetches posts from a list of defined subreddits, stores the fetched data in a CSV file, and preprocesses the posts' text data. It then trains and evaluates multiple classifiers based on this preprocessed data.
+If running on Google Colab, run the following code in the notebook.
+
+``` python
+!pip install -r requirements.txt 
+!pip install praw
+```	
+
+Then continue with the rest of the code by running each cell one by one or by running all cells at once.
+If you run all cells at once, you will train two models but this shouldn't take too long. You can also skip the training and run the cell to load the model from disk.
+
+Please be careful if you want to make API calls yourself as you can potentially hit the Reddit API limit. Preferably use the reddit.csv file. You will make one API call at a time later in the project where you test the Model - this way you can ensure it works. 
 
 ## Project Structure
 
@@ -47,6 +70,8 @@ The script performs the following steps:
 6. Save and load models: The best performing model is saved to disk for future use.
 
 7. Predict subreddit: The model is used to predict the subreddit of a new post. Test it by running the cell for the test on its own dataset. Then test it by running the cell for the api call test. You can also run the main.py file to test the model in a browser. 
+
+8. (Google Colab) Generative AI: Additionally an image can be created out of a post which is followed with a caption. You have the ability to rate the image according to the prompt with a scale from 1-5 which is saved in a CSV file. 
 
 ## Files
 
