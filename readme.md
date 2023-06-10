@@ -48,6 +48,8 @@ The script performs the following steps:
 
 7. Predict subreddit: The model is used to predict the subreddit of a new post. Test it by running the cell for the test on its own dataset. Then test it by running the cell for the api call test. You can also run the main.py file to test the model in a browser. 
 
+8. (Google Colab) Generative AI: Additionally an image can be created out of a post which is followed with a caption. You have the ability to rate the image according to the prompt with a scale from 1-5 which is saved in a CSV file. 
+
 ## Files
 
 - `app.ipynb`: The main Python file which fetches the data, preprocesses it, trains the models, and evaluates them.
