@@ -5,9 +5,11 @@ import time
 import pandas as pd
 import pickle
 import nltk
+import config
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
+
 
 app = Flask(__name__, template_folder='templates')
 
@@ -16,8 +18,15 @@ reddit = praw.Reddit(client_id=config.client_id,
                      client_secret=config.client_secret,
                      user_agent=config.user_agent)
 
-#List of subreddits
+# As of June 12th, a lot of subreddits have gone private for an indefinite amount of time in protest of the upcoming
+# Reddit API changes (which affects this project as well!). Due to this circumstance the list of subreddits has been
+# severely cut to prevent 402 errors!
+
+# Old list of subreddits
 subreddits = ['AskReddit', 'gaming', 'aww', 'movies', 'Showerthoughts', 'Jokes', 'science', 'books', 'Music', 'LifeProTips']
+
+# New List of subreddits - containing only non-private subs
+subreddits = ['AskReddit', 'movies', 'books']
 
 nltk.download('punkt')  #For tokenization
 nltk.download('stopwords')  #For stopword removal
