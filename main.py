@@ -65,6 +65,7 @@ def home():
 
 @app.route('/predict', methods=['POST'])
 def predict():
+    post_title = ''
     if request.method == 'POST':
         #The code that fetches a post and makes a prediction
         title_content_length = 0
@@ -75,6 +76,7 @@ def predict():
             new_submission = reddit.subreddit(random_subreddit).hot(limit=1)
 
             for submission in new_submission:
+                post_title = submission.title
                 new_post = pd.DataFrame({
                     'title': [submission.title],
                     'content': [submission.selftext],
@@ -103,7 +105,7 @@ def predict():
         else:
             result = "The model predicted incorrectly! - you can try again or proceed with creating a fitting picture"
     #Return JSON
-    return jsonify({'result': result})  
+    return jsonify({'result': result, 'predicted_sub': predicted_subreddit, 'actual_sub': random_subreddit, 'title': post_title})
 
 if __name__ == '__main__':
     app.run(debug=True)

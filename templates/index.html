@@ -24,6 +24,9 @@
             <p>Loading ... </p>
         </div>
         <h2 class="mt-5">Result:</h2>
+        <p id="post-title"></p>
+        <p id="predicted"></p>
+        <p id="actual"></p>
         <p id="result"></p>
     </div>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -39,7 +42,10 @@
                 success: function(response) {
                     // Hide loading gif
                     $('#loading').hide();
-
+                    console.log(response)
+                    $('#post-title').text("Title of the Post: " + response.title);
+                    $('#predicted').text("Predicted Subreddit: " + response.predicted_sub);
+                    $('#actual').text("Actual Subreddit: " + response.actual_sub);
                     $('#result').text(response.result);
                 },
                 error: function(error) {
